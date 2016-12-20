@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <title>Losing in the Forest</title>
+  <style>
+  h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    align: center;
+  }
+  .pic{
+    position: absolute;
+    z-index:-1;
+    padding-left: 0px;
+    padding-top: 0px;
+  }
+  .description{
+    padding-left: 30%;
+  }
+  .button{
+    position: absolute;
+    left: 50%;
+    top: 550px;
+  }
+  #show{
+    display: none;
+    padding-left: 30%;
+  }
+
+  form{
+    padding-left: 33%;
+  }
+
+  body {
+    font-family: "Courier New", Courier, serif;
+    align: left;
+    font-size: 17px;
+    text-align: left;
+    line-height: 2;
+    padding-left: 10%;
+    background-image: url("{{url_for('static', filename='bg.jpg')}}");
+  }
+  p{
+    align: left;
+    font-size: 20px;
+    text-align: center;
+    line-height: 2;
+  }
+  </style>
+</head>
+
+<body>
+  {% block content %}
+  <p>Empty Layout</p>
+  {% endblock %}
+</body>
+<script>
+
+function help(id)
+{
+    var x = document.getElementById(id);
+    if (x.style.display == 'none' || x.style.display=='')
+    {
+        x.style.display = 'block';
+    }
+    else
+    {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+</html>

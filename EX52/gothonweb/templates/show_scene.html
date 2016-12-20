@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if scene %}
+  <h1> {{scene.title}} </h1>
+  {% if scene.urlname == "wake_up_scene" %}
+  <form action="/help" method="POST">
+    <input type="submit" name="action" value="Reference">
+    <input type="submit" name="action" value="Jump to Final Scene">
+  </form>
+  <div class="pic"><img src="{{url_for('static', filename='game.png')}}" /></div>
+  <p class="button" onclick="help('show')">Help system(Click me)</p>
+  <div id="show">* You can walk, run or rest*</div>
+  {% endif %}
+
+  {% if scene.urlname == "bag_code_scene" %}
+  <form action="/help" method="POST">
+    <input type="submit" name="action" value="Reference">
+    <input type="submit" name="action" value="Jump to Final Scene">
+  </form>
+  <div class="pic"><img src="{{url_for('static', filename='bag.png')}}" /></div>
+  <p class="button" onclick="help('show')">Help system(Click me)</p>
+  <div id="show">* The code is combine with 9,8,7 *</div>
+  {% endif %}
+
+  {% if scene.urlname == "north_or_west_scene" %}
+  <form action="/help" method="POST">
+    <input type="submit" name="action" value="Reference">
+    <input type="submit" name="action" value="Jump to Final Scene">
+  </form>
+  <div class="pic"><img src="{{url_for('static', filename='forest.png')}}" /></div>
+  <p class="button" onclick="help('show')">Help system(Click me)</p>
+  <div id="show">* North is better *</div>
+  {% endif %}
+
+  {% if scene.urlname == "escape_pod" %}
+  <form action="/help" method="POST">
+    <input type="submit" name="action" value="Reference">
+    <input type="submit" name="action" value="Jump to Final Scene">
+  </form>
+  <div class="pic"><img src="{{url_for('static', filename='tree.png')}}" /></div>
+  <p class="button" onclick="help('show')">Help system(Click me)</p>
+  <div id="show">* Left is better *</div>
+  {% endif %}
+
+  {% if scene.urlname == "the_end_winner" %}
+  <form action="/help" method="POST">
+    <input type="submit" name="action" value="Reference">
+    <input type="submit" name="action" value="Jump to Final Scene">
+  </form>
+  <div class="pic"><img src="{{url_for('static', filename='village.png')}}" /></div>
+  <p class="button" onclick="help('show')">Help system(Click me)</p>
+  <div id="show">* End Scene *</div>
+  {% endif %}
+
+  <div class="description"><pre>{{scene.description}}</pre></div>
+  {% if scene.urlname == "death" %}
+    <p><a href="/">Play Again?</a></p>
+  {% else %}
+    <p>
+      <form action="/game" method="POST">
+        What do you do? <input type="text" name="userinput"><input type="SUBMIT">
+      </form>
+    </p>
+  {% endif %}
+{% else %}
+  <p><a href="/">Start at the Beginning</a></p>
+{% endif %}
+
+{% endblock %}
